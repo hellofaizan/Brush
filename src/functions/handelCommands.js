@@ -2,7 +2,7 @@ const { REST } = require("@discordjs/rest");
 const { Routes } = require('discord-api-types/v9');
 const fs = require('fs');
 
-const clientId = '*******************'; // Your Discord Bot client ID
+const clientId = "1174872182602596412" // Your Discord Bot client ID
 const guildId = '*******************'; // Your Discord Server ID just for testing
 
 module.exports = (client) => {

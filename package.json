@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "dotenv": "^16.3.1",
+    "jimp": "^0.22.10",
+    "nodemon": "^3.0.1"
+  },
+  "name": "brush",
+  "description": "🤖 Discord JS 14 Bot Template. Developed by [HelloFaizan](https://l.hellofaizan.me/)",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": "git+https://github.com/hellofaizan/Brush.git",
+  "author": "HelloFaizan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hellofaizan/Brush/issues"
+  },
+  "homepage": "https://github.com/hellofaizan/Brush#readme"
+}
