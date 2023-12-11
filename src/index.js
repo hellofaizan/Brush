@@ -31,6 +31,8 @@ client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
     const hex = message.content.match(/#(?:[0-9a-fA-F]{3}){1,2}/g);
     const rgb = message.content.match(/rgb\((\d{1,255}), (\d{1,255}), (\d{1,255})\)/g);
+    // color code having 0x in front of it
+    const xhex = message.content.match(/0x(?:[0-9a-fA-F]{3}){1,2}/g);
     // hlx color code is made by color percentage, so it can be any number between 0 and 100
     //? const hlx = message.content.match(/hlx\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/g);
     if (hex) {
@@ -40,6 +42,17 @@ client.on("messageCreate", async (message) => {
                 if (err) throw err;
                 // reply to the message with the color code and buffer image
                 message.reply({ content: `${hex[0]}`, files: [buffer] });
+            });
+        });
+    }
+    if (xhex) {
+        const xhexArray = xhex[0].replace(/0x([0-9a-fA-F]{3}){1,2}/g, "$1").split("");
+        new Jimp(200, 50, `#${xhexArray[0]}${xhexArray[1]}${xhexArray[2]}`, (err, img) => {
+            if (err) throw err;
+            img.getBuffer(Jimp.MIME_PNG, (err, buffer) => {
+                if (err) throw err;
+                // reply to the message with the color code and buffer image
+                message.reply({ content: `${xhex[0]}`, files: [buffer] });
             });
         });
     }
