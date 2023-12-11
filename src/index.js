@@ -26,6 +26,21 @@ client.on("ready", () => {
     client.user.setStatus("dnd");
 });
 
+// on join new guild, send a message to any public channel
+client.on("guildCreate", async (guild) => {
+    const channel = guild.channels.cache.find(channel => channel.type === "text" && channel.permissionsFor(guild.me).has(PermissionsBitField.SEND_MESSAGES));
+    if (!channel) return;
+    const embed = new EmbedBuilder()
+        .setTitle("Thanks for adding me!")
+        .setDescription("I will always look for HEX Codes or RGB Codes in chat and reply with the color image.")
+        .addField("Commands", "```css\n#hex\nrgb(r, g, b)\n0xhex\n```")
+        .addField("Support", "If you need any help, join my [support server](https://discord.gg/vUHMxPvege).")
+        .setFooter("Made with ❤️ by @SudhanPlayz#0001")
+        .setColor("RANDOM")
+        .build();
+    channel.send({ embeds: [embed] });
+});
+
 // keep an eye on messages, if anu message contains Hex Color code or rgb color code, send the color
 client.on("messageCreate", async (message) => {
     if (message.author.bot) return;
