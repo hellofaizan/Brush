@@ -34,31 +34,31 @@ client.on("guildCreate", async (guild) => {
     await webhook.send(`Joined ${guild.name}! I am now in ${client.guilds.cache.size} servers.`);
 
 
-    const channel = guild.channels.cache.find(channel => channel.permissionsFor && channel.type === 0 && channel.permissionsFor(client.user.id).has([PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ViewChannel]));
-    if (channel) {
-        const embed = {
-            title: "Thanks for inviting me!",
-            description: "A simple [Open Source](https://github.com/Youth-Icon/Brush) bot always looking for HEX codes or RGB codes in chat. Try typing `#ff0000` or `rgb(255, 0, 0)` in chat.",
-            fields: [
-                {
-                    name: "Support",
-                    value: "[Join the support server](https://discord.gg/vUHMxPvege)",
-                    inline: true
-                },
-                {
-                    name: "Developer",
-                    value: "https://hellofaizan.me",
-                    inline: true
-                }
-            ],
-            color: 0xc2c2fb,
-            thumbnail: {
-                url: "https://cdn.discordapp.com/attachments/1065518726855807067/1183670595444015115/442e047d3e46dfb978e85b07a4be0457.webp?ex=65892e25&is=6576b925&hm=4071092e6b6984d34d87d57c9679667cb544c3164b2f37b1c22d5de774dd34a7"
-            },
+    // const channel = guild.channels.cache.find(channel => channel.permissionsFor && channel.type === 0 && channel.permissionsFor(client.user.id).has([PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ViewChannel]));
+    // if (channel) {
+    //     const embed = {
+    //         title: "Thanks for inviting me!",
+    //         description: "A simple [Open Source](https://github.com/Youth-Icon/Brush) bot always looking for HEX codes or RGB codes in chat. Try typing `#ff0000` or `rgb(255, 0, 0)` in chat.",
+    //         fields: [
+    //             {
+    //                 name: "Support",
+    //                 value: "[Join the support server](https://discord.gg/vUHMxPvege)",
+    //                 inline: true
+    //             },
+    //             {
+    //                 name: "Developer",
+    //                 value: "https://hellofaizan.me",
+    //                 inline: true
+    //             }
+    //         ],
+    //         color: 0xc2c2fb,
+    //         thumbnail: {
+    //             url: "https://cdn.discordapp.com/attachments/1065518726855807067/1183670595444015115/442e047d3e46dfb978e85b07a4be0457.webp?ex=65892e25&is=6576b925&hm=4071092e6b6984d34d87d57c9679667cb544c3164b2f37b1c22d5de774dd34a7"
+    //         },
 
-        }
-        channel.send({ embeds: [embed] });
-    }
+    //     }
+    //     channel.send({ embeds: [embed] });
+    // }
 
 });
 
